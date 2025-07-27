@@ -141,14 +141,28 @@ const Navbar = () => {
         ) : (
           <button
             onClick={() => navigate('/login')}
-            className="bg-blue-500 text-white px-6 py-2 rounded-full text-sm font-normal hidden md:block hover:bg-blue-600 transition"
+            className="bg-[#6366F1] text-white h-10 w-40 rounded-full text-sm font-normal hidden md:block hover:bg-blue-600 transition"
           >
             Create account
           </button>
         )}
+        <img onClick={()=>setShowMenu(true)} className='w-6 md-hidden' src={assets.menu_icon} alt="" />
+        {/* Mobile menu */}
+        <div className={`&{showMenu ? 'fixed w-full' : 'h-0 w-0'} md:hidden right-0 top-0 bottom-0 z-20 overflow-hidden bg-white transition-all`}>
+          <div>
+            <img src={assets.logo} alt="" />
+            <img onClick={() => setShowMenu(false)} src={assets.cross_icon} alt="" />
+          </div>
+          <ul>
+            <NavLink>HOME</NavLink>
+            <NavLink>ALL DOCTORS</NavLink>
+            <NavLink>ABOUT</NavLink>
+            <NavLink>CONTACT</NavLink>
+          </ul>
+        </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar
