@@ -7,7 +7,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const [showMenu, setShowMenu] = useState(false);
   // const [token, setToken] = useState(true);(it was for temp use before api)
-  const {token, setToken} =useContext(AppContext)
+  const {token, setToken, userData} =useContext(AppContext)
 
   // to logout
   const logout = () => {
@@ -98,7 +98,9 @@ const Navbar = () => {
 
       {/* Auth & Profile */}
       <div className="flex items-center gap-4">
-        {token ? (
+        { 
+        token && userData 
+        ? (
           <div ref={dropdownRef} className="relative">
             <button
               className="flex items-center gap-2 cursor-pointer"
@@ -108,7 +110,7 @@ const Navbar = () => {
             >
               <img
                 className="w-8 rounded-full"
-                src={assets.profile_pic}
+                src={userData.image}
                 alt="Profile"
               />
               <img className="w-2.5" src={assets.dropdown_icon} alt="Menu" />
