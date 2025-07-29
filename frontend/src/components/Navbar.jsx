@@ -1,11 +1,20 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef, useEffect, useContext } from 'react'
 import { assets } from '../assets/assets'
 import { NavLink, useNavigate } from 'react-router-dom'
+import { AppContext } from '../context/AppContext';
 
 const Navbar = () => {
   const navigate = useNavigate();
   const [showMenu, setShowMenu] = useState(false);
-  const [token, setToken] = useState(true);
+  // const [token, setToken] = useState(true);(it was for temp use before api)
+  const {token, setToken} =useContext(AppContext)
+
+  // to logout
+  const logout = () => {
+    setToken(false)
+    localStorage.removeItem('token')
+  }
+
   const dropdownRef = useRef(null);
 
   // Handle clicking outside to close dropdown
@@ -126,10 +135,7 @@ const Navbar = () => {
                     My Appointments
                   </button>
                   <button
-                    onClick={() => {
-                      setToken(false);
-                      setShowMenu(false);
-                    }}
+                    onClick={logout}
                     className="text-left hover:text-black"
                   >
                     Logout
