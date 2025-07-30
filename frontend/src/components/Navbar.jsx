@@ -7,7 +7,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const [showMenu, setShowMenu] = useState(false);
   // const [token, setToken] = useState(true);(it was for temp use before api)
-  const {token, setToken, userData} =useContext(AppContext)
+  const { token, setToken, userData } = useContext(AppContext)
 
   // to logout
   const logout = () => {
@@ -94,67 +94,78 @@ const Navbar = () => {
             CONTACT
           </NavLink>
         </li>
+        <li>
+          <a
+            href="http://localhost:5174/admin"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-4 py-2 border border-gray-300 rounded-full text-sm font-semibold text-gray-700 hover:bg-gray-100 transition"
+          >
+            Admin Panel
+          </a>
+        </li>
+
       </ul>
 
       {/* Auth & Profile */}
       <div className="flex items-center gap-4">
-        { 
-        token && userData 
-        ? (
-          <div ref={dropdownRef} className="relative">
-            <button
-              className="flex items-center gap-2 cursor-pointer"
-              aria-haspopup="true"
-              aria-expanded={showMenu}
-              onClick={() => setShowMenu((prev) => !prev)}
-            >
-              <img
-                className="w-8 rounded-full"
-                src={userData.image}
-                alt="Profile"
-              />
-              <img className="w-2.5" src={assets.dropdown_icon} alt="Menu" />
-            </button>
-            {showMenu && (
-              <div className="absolute right-0 pt-2 text-base font-medium text-gray-600 z-20">
-                <div className="min-w-48 bg-stone-100 rounded flex flex-col gap-4 p-4 shadow-lg">
-                  <button
-                    onClick={() => {
-                      navigate('/my-profile');
-                      setShowMenu(false);
-                    }}
-                    className="text-left hover:text-black"
-                  >
-                    My Profile
-                  </button>
-                  <button
-                    onClick={() => {
-                      navigate('/my-appointments');
-                      setShowMenu(false);
-                    }}
-                    className="text-left hover:text-black"
-                  >
-                    My Appointments
-                  </button>
-                  <button
-                    onClick={logout}
-                    className="text-left hover:text-black"
-                  >
-                    Logout
-                  </button>
-                </div>
+        {
+          token && userData
+            ? (
+              <div ref={dropdownRef} className="relative">
+                <button
+                  className="flex items-center gap-2 cursor-pointer"
+                  aria-haspopup="true"
+                  aria-expanded={showMenu}
+                  onClick={() => setShowMenu((prev) => !prev)}
+                >
+                  <img
+                    className="w-8 rounded-full"
+                    src={userData.image}
+                    alt="Profile"
+                  />
+                  <img className="w-2.5" src={assets.dropdown_icon} alt="Menu" />
+                </button>
+                {showMenu && (
+                  <div className="absolute right-0 pt-2 text-base font-medium text-gray-600 z-20">
+                    <div className="min-w-48 bg-stone-100 rounded flex flex-col gap-4 p-4 shadow-lg">
+                      <button
+                        onClick={() => {
+                          navigate('/my-profile');
+                          setShowMenu(false);
+                        }}
+                        className="text-left hover:text-black"
+                      >
+                        My Profile
+                      </button>
+                      <button
+                        onClick={() => {
+                          navigate('/my-appointments');
+                          setShowMenu(false);
+                        }}
+                        className="text-left hover:text-black"
+                      >
+                        My Appointments
+                      </button>
+                      <button
+                        onClick={logout}
+                        className="text-left hover:text-black"
+                      >
+                        Logout
+                      </button>
+                    </div>
+                  </div>
+                )}
               </div>
+            ) : (
+              <button
+                onClick={() => navigate('/login')}
+                className="bg-[#6366F1] text-white h-10 w-40 rounded-full text-sm font-normal hidden md:block hover:bg-blue-600 transition"
+              >
+                Create account
+              </button>
             )}
-          </div>
-        ) : (
-          <button
-            onClick={() => navigate('/login')}
-            className="bg-[#6366F1] text-white h-10 w-40 rounded-full text-sm font-normal hidden md:block hover:bg-blue-600 transition"
-          >
-            Create account
-          </button>
-        )}
-        <img onClick={()=>setShowMenu(true)} className='w-6 md-hidden' src={assets.menu_icon} alt="" />
+        <img onClick={() => setShowMenu(true)} className='w-6 md-hidden' src={assets.menu_icon} alt="" />
         {/* Mobile menu */}
         <div className={`&{showMenu ? 'fixed w-full' : 'h-0 w-0'} md:hidden right-0 top-0 bottom-0 z-20 overflow-hidden bg-white transition-all`}>
           <div>
