@@ -137,9 +137,9 @@ const Appointment = () => {
 
   return docInfo && (
     <>
-      <div className="flex flex-col sm:flex-row justify-center items-start gap-6 p-6" style={{ marginTop: 15 }}>
+      <div className="flex flex-col sm:flex-row justify-center items-start gap-6 p-6" style={{ marginTop: 20 }}>
         {/* Left Box: Image */}
-        <div className="bg-[#6366F1] rounded-xl p-6 sm:p-8 w-49 sm:max-w-sm flex justify-center items-center h-55">
+        <div className="bg-[#6366F1] rounded-xl p-6 sm:p-8 w-70 h-75  sm:max-w-sm flex justify-center items-center">
           <img
             src={docInfo.image}
             alt={docInfo.name}
@@ -148,20 +148,20 @@ const Appointment = () => {
         </div>
 
         {/* Right Box: Info */}
-        <div className="bg-white rounded-xl border border-gray-300 p-6 w-full sm:max-w-2xl shadow-sm h-55">
+        <div className="bg-white w-70 h-75 rounded-xl border border-gray-300 p-6 w-full sm:max-w-2xl shadow-sm">
           <div className="flex items-center gap-2">
-            <p className="flex item-center gap-2 text-2xl font-medium text-gray-900" style={{ marginLeft: 15 }}>{docInfo.name}</p>
-            <img src={assets.verified_icon} alt="Verified" className="w-5 h-5" />
+            <p className="flex item-center gap-2 text-3xl font-medium text-gray-900" style={{ marginLeft: 35, marginTop: 25 }}>{docInfo.name}</p>
+            <img src={assets.verified_icon} alt="Verified" className="w-5 h-5" style={{ marginTop: 20 }} />
           </div>
 
-          <div className="mt-2 flex itme-center gap-2 text-gray-600 text-sm" style={{ marginLeft: 15 }}>
+          <div className="mt-2 flex itme-center gap-2 text-gray-600 text-m" style={{ marginLeft: 35 }}>
             <p>{docInfo.degree} - {docInfo.speciality}</p>
-            <button className="py-0.5 px-2 border text-xs rounded-full">
+            <button className="h-5 w-13 border text-xs rounded-full" style={{ marginTop: 3 }}>
               {docInfo.experience}
             </button>
           </div>
 
-          <div className="mt-4" style={{ marginLeft: 15 }}>
+          <div className="mt-4" style={{ marginLeft: 35, marginTop: 20 }}>
             <p className='flex item-center gap-1 text-sm font-medium text-gray-900 mt-3 '>About
               <img src={assets.info_icon} alt="Info" className="w-4 h-4" /></p>
             <p className="text-gray-600 mt-2 text-sm leading-relaxed">
@@ -169,14 +169,14 @@ const Appointment = () => {
             </p>
           </div>
 
-          <p className="font-semibold text-gray-500 text-sm" style={{ marginLeft: 15, marginTop: 10 }}>
+          <p className="font-semibold text-gray-500 text-m" style={{ marginLeft: 35, marginTop: 15 }}>
             Appointment fee: <span className="text-black">{currencySymbol}{docInfo.fees}</span>
           </p>
         </div>
       </div>
 
       {/* Booking Slots Section BELOW the profile */}
-      <div className='sm:ml-72 sm:pl-4 mt-4 font-medium text-gray-700' style={{ marginTop: 15, marginLeft: 420 }}>
+      <div className='sm:ml-72 sm:pl-4 mt-4 font-medium text-gray-700' style={{ marginTop: 35, marginLeft: 460 }}>
         <p>Booking Slots</p>
         <div className='flex gap-3 item-center overflow-x-scroll mt-4 w-full'>
           {
@@ -200,14 +200,16 @@ const Appointment = () => {
         <div className='flex items-center gap-3 w-full overflow-x-scroll mt-4 flex-nowrap' style={{ marginTop: 15 }}>
           {docSlots.length > 0 && docSlots[slotIndex].map((item, index) => (
             <p onClick={() => setSlotTime(item.time)}
-              className={`text-sm font-light flex-shrink-0 h-8 w-20 rounded-full cursor-pointer border ${item.time === slotTime ? 'bg-[#6366F1] text-white mt-10' : 'text-gray-400 border border-gray-300'}`}
+              className={`text-sm font-light flex items-center justify-center flex-shrink-0 h-8 w-20 rounded-full cursor-pointer border ${item.time === slotTime ? 'bg-[#6366F1] text-white mt-10' : 'text-gray-400 border border-gray-300'
+                }`}
+
               key={index}
             >
               {item.time.toLowerCase()}
             </p>
           ))}
         </div>
-        <button onClick={bookAppointment} className='bg-[#6366F1] text-white text-sm font-light h-10 w-55 rounded-full my-6' style={{ marginTop: 15 }}> Book an Appointment</button>
+        <button onClick={bookAppointment} className='bg-[#6366F1] text-white text-sm font-light h-10 w-55 rounded-full my-6' style={{ marginTop: 25 }}> Book an Appointment</button>
         {/* listing related doctors */}'
         <RelatedDoctors docId={docId} speciality={docInfo.speciality} />
       </div>

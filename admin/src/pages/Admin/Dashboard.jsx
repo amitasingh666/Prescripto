@@ -50,8 +50,8 @@ const Dashboard = () => {
 
       <div className='bg-white '>
 
-        <div className='flex items-center gap-2.5 px-4 py-4 rounded-t border' style={{ marginTop: 20 }}>
-          <img src={assets.list_icon} alt="" />
+        <div className='flex items-center gap-2.5 h-10 rounded-t border' style={{ marginTop: 20 }}>
+          <img style={{ marginLeft: 10 }} src={assets.list_icon} alt="" />
           <p className='font-semibold'>Latest Bookings</p>
         </div>
 
@@ -59,8 +59,8 @@ const Dashboard = () => {
           {
             dashData.latestAppointments.map((item, index) => {
               return (
-                <div className='flex items-center px-6 py-3 gap-3 hover:bg-gray-100' key={index}>
-                  <img className='rounded-full w-10' src={item.docData.image} alt="" />
+                <div className='flex items-center px-6 py-3 gap-5 hover:bg-gray-100' key={index}>
+                  <img className='rounded-full w-12' src={item.docData.image} alt="" />
                   <div className='flex-1 text-sm'>
                     <p className='text-gray-800 font-medium'>{item.docData.name}</p>
                     <p className='text-gray-600'>{slotDateFormat(item.slotDate)}</p>

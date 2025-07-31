@@ -23,15 +23,15 @@ const About = () => {
       </div>
 
       <div className='flex flex-col md:flex-row mb-20' style={{marginTop:15, marginLeft:55}}>
-        <div className='border h-60 md:px-16 w-80 sm:py-16 flex flex-col gap-5 text-[15px] hover:bg-blue-700 hover:text-white transition-all duration-300 text-gray-600 cursor-pointer'>
+        <div className='border h-60 md:px-16 w-80 sm:py-16 flex flex-col gap-5 text-[15px] hover:bg-[#6366F1] hover:text-white transition-all duration-300 text-gray-600 cursor-pointer'>
           <b style={{marginTop:45, marginLeft:65}}>EFFICIENCY:</b>
           <p style={{marginTop:5, marginLeft:65, marginRight:25}}>Streamlined appointment scheduling that fits into your busy lifestyle.</p>
         </div>
-        <div className='border h-60 md:px-16 w-80 sm:py-16 flex flex-col gap-5 text-[15px] hover:bg-blue-700 hover:text-white transition-all duration-300 text-gray-600 cursor-pointer'>
+        <div className='border h-60 md:px-16 w-80 sm:py-16 flex flex-col gap-5 text-[15px] hover:bg-[#6366F1] hover:text-white transition-all duration-300 text-gray-600 cursor-pointer'>
           <b style={{marginTop:45, marginLeft:65}}>CONVENIENCE:</b>
           <p style={{marginTop:5, marginLeft:65, marginRight:25}}>Access to a network of trusted healthcare professionals in your area.</p>
         </div>
-        <div className='border h-60 md:px-16 w-80 sm:py-16 flex flex-col gap-5 text-[15px] hover:bg-blue-700 hover:text-white transition-all duration-300 text-gray-600 cursor-pointer'>
+        <div className='border h-60 md:px-16 w-80 sm:py-16 flex flex-col gap-5 text-[15px] hover:bg-[#6366F1] hover:text-white transition-all duration-300 text-gray-600 cursor-pointer'>
           <b style={{marginTop:45, marginLeft:65}}>PERSONALIZATION:</b>
           <p style={{marginTop:5, marginLeft:65, marginRight:25}}>Tailored recommendations and reminders to help you stay on top of your health.</p>
         </div>

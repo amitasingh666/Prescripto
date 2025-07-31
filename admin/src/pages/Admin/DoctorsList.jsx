@@ -16,13 +16,13 @@ const DoctorsList = () => {
   return (
     <div className='m-5 max-h-[90vh] overflow-y-scroll'>
       <h1 className='text-lg font-medium'>All Doctors</h1>
-      <div className='w-full flex flex-wrap gap-4 pt-5 gap-y-6'>
+      <div style={{marginTop:10}} className='w-full flex flex-wrap gap-5 pt-5 gap-y-6'>
         {
           doctors.map((item, index)=>(
             <div className='border border-indigo-200 rounded-xl max-w-56 overflow-hidden cursor-pointer group' key={index}>
-              <img className='bg-indigo-50 group-hover:bg-blue-500 transition-all duration-500' src={item.image} alt="" />
+              <img className='bg-[#F2F3FF] group-hover:bg-[#6366F1] transition-all duration-500' src={item.image} alt="" />
 
-              <div className='p-4'>
+              <div style={{marginLeft:10, marginBottom:5}} className='p-4'>
                 <p className='text-neutral-800 text-lg font-medium'>{item.name}</p>
                 <p className='text-zinc-600 text-sm'>{item.speciality}</p>
                 <div className='mt-4 flex item-center gap-1 text-sm'>

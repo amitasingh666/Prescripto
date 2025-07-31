@@ -16,11 +16,11 @@ const DoctorAppointments = () => {
   }, [dToken])
 
   return (
-    <div className='w-full max-w-6xl m-5'>
+    <div style={{marginTop:10}} className='w-full max-w-6xl m-5'>
       <p className='mb-3 text-lg font-medium'>All Appointments</p>
 
-      <div className='bg-white border rounded text-sm max-h-[80vh] min-h-[50vh] overflow-y-scroll'>
-        <div className='max-sm:hidden grid grid-cols-[0.5fr_2fr_1fr_1fr_3fr_1fr_1fr] gap-3 py-3 px-6 border-b'>
+      <div style={{marginTop:10, marginLeft:10}} className='bg-white border rounded text-sm max-h-[80vh] min-h-[50vh] overflow-y-scroll'>
+        <div className='max-sm:hidden grid grid-cols-[0.5fr_2fr_1fr_1fr_3fr_1fr_1fr] gap-3 h-7 px-6 border-b'>
           <p>#</p>
           <p>Patient</p>
           <p>Payment</p>
@@ -32,14 +32,14 @@ const DoctorAppointments = () => {
 
         {
           appointments.reverse().map((item, index) => (
-            <div className='flex flex-wrap justify-between max-sm:gap-5 max-sm:text-base sm:grid grid-cols-[0.5fr_2fr_1fr_1fr_3fr_1fr_1fr] gap-1 items-center text-gray-500 py-3 px-6 border-b hover:bg-gray-50' key={index}>
+            <div className='flex flex-wrap justify-between max-sm:gap-5 max-sm:text-base sm:grid grid-cols-[0.5fr_2fr_1fr_1fr_3fr_1fr_1fr] gap-1 items-center text-gray-500 h-10 px-6 border-b hover:bg-gray-50' key={index}>
               <p className='max-sm:hidden'>{index + 1}</p>
               <div className='flex items-center gap-2'>
                 <img className='w-8 rounded-full' src={item.userData.image} alt="" /> <p>{item.userData.name}</p>
               </div>
 
               <div>
-                <p className='text-xs inline border border-blue-500 w-10 rounded-full'>
+                <p className='text-sm'>
                   {
                     item.payment ? 'Online' : 'Cash'
                   }
